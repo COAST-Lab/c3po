@@ -4,6 +4,4 @@ This respository shows the progress of the Atlas Conductivity Sensor with the Pa
 
 ## Next Steps / Questions:
 - What's the goal of this project and this repo specfically? Add these details to this README.MD file.
-- Add BOMs / parts lists
-- Add detailed instructions
-- Add photos of assembly process & parts
+- Add detailed instructions and photos of parts / assembly
