@@ -20,7 +20,7 @@ D: Short the PRB pin to the TX pin instead.
     2. Remove power (GND, 5V)
 
 ## 2: Wiring Diagram Assembly
-<img src="Photos/Wiring_Diagram_Assembly.jpeg" width="600">
+<img src="Wiring Diagram/Circuit-Diagram (2).png" width="600">
 Figure: Made using Canva due to Circuit Diagram issues.
 
 1. Ground both devices
