@@ -10,7 +10,7 @@ This procedure is easiest using a breadboard and a set of jumper wires.
     - PGND pin to the TX pin if your circuit is EZO pH, EZO DO, EZO ORP, or EZO EC
     - Only exception is EZO RT
 
-<img src="pathway" width="600">
+<img src="Documentation/Photos/Protocol_Step1.jpeg" width="600">
 
 D: Short the PRB pin to the TX pin instead.
 
@@ -35,5 +35,5 @@ Figure: Made using Canva due to Circuit Diagram issues.
 2. I was successfully able to collect results onto the serial monitor in VS code.
 
 ## Important Links
-[AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
-[TheGeographer/water-quality-array](https://github.com/TheGeographer/water-quality-array/tree/master) - a project that used the Atlas probe for water quality measurements
+- [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
+- [TheGeographer/water-quality-array](https://github.com/TheGeographer/water-quality-array/tree/master) - a project that used the Atlas probe for water quality measurements
