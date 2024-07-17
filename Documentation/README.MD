@@ -10,7 +10,7 @@ This procedure is easiest using a breadboard and a set of jumper wires.
     - PGND pin to the TX pin if your circuit is EZO pH, EZO DO, EZO ORP, or EZO EC
     - Only exception is EZO RT
 
-<img src="Documentation/Photos/Protocol_Step1.jpeg" width="600">
+<img src="Photos/Protocol_Step1.jpeg" width="600">
 
 D: Short the PRB pin to the TX pin instead.
 
