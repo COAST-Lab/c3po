@@ -1,8 +1,8 @@
 # Initialization of Atlas Conductivity Sensor with Boron
 
 ## Change protocol of Atlas Conductivity Sensor
-1. Out of the kit the atlas is in UART mode which we need to change to I2C mode because UART connections (TX/RX) are used for communication to the OpenMV.
-2. I manually set the protocol from UART to I2C described [here.](https://www.whiteboxes.ch/docs/tentacle/t2-mkII/#/protocols) I have also copy and pasted the steps and images below. Please note that the figure uses an ArduinoUno while I used a Boron. Every connection remains the same besides the Arduino powering with the +5V pin. I used the VUSB pin on the Boron because the +5V pin does not exist on the Boron. This uses the power directly from the usb port.
+1. Out of the kit, the Atlas is in UART mode. This needs to be changed to I2C mode because UART connections (TX/RX) are used for communication to the OpenMV.
+2. I manually set the protocol from UART to I2C as described [here.](https://www.whiteboxes.ch/docs/tentacle/t2-mkII/#/protocols) I have also copied and pasted the steps and images below. Please note that the figure uses an ArduinoUno while I used a Boron. Every connection remains the same except the Arduino powering with the +5V pin. I used the VUSB pin on the Boron because the +5V pin does not exist on the Boron. This uses the power directly from the USB port.
 
 This procedure is easiest using a breadboard and a set of jumper wires.
 
@@ -20,7 +20,7 @@ D: Short the PRB pin to the TX pin instead.
     2. Remove power (GND, 5V)
 
 ## Wiring Diagram Assembly
-[insert photo]
+<img src="Photos/Wiring_Diagram_Assembly.jpeg" width="600">
 Figure: Made using Canva due to Circuit Diagram issues.
 
 1. Ground both devices
