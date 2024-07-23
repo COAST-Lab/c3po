@@ -1,4 +1,22 @@
-#include <Particle.h>
+/* 
+ * Project myProject
+ * Author: Your Name
+ * Date: 
+ * For comprehensive documentation and examples, please visit:
+ * https://docs.particle.io/firmware/best-practices/firmware-template/
+ */
+
+// Include Particle Device OS APIs
+#include "Particle.h"
+
+void setup(void);
+void loop(void);
+void string_pars();
+
+SYSTEM_MODE(SEMI_AUTOMATIC); // uncomment for deployment
+SYSTEM_THREAD(ENABLED);
+
+// Project specific
 #define address 100              //default I2C ID number for EZO pH Circuit.
 
 char computerdata[20];           //we make a 20 byte character array to hold incoming data from a pc/mac/other.
