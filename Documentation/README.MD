@@ -4,7 +4,7 @@
 1. Out of the kit, the Atlas is in UART mode. This needs to be changed to I2C mode because UART connections (TX/RX) are used for communication to the OpenMV.
 2. Manually set the protocol from UART to I2C as described [here.](https://www.whiteboxes.ch/docs/tentacle/t2-mkII/#/protocols)
     - The linked steps and images are also pasted below.
-    - Please note that the figure uses an ArduinoUno, while I used a Boron. Every connection remains the same except the Arduino powering with the +5V pin; I used the VUSB pin on the Boron because it doesn't have a +5V pin. The VUSB connection uses power directly from the USB port.
+    - Note: Figure uses an ArduinoUno, while instructions refer to a Boron. Every connection remains the same except the Arduino powering with the +5V pin; use the VUSB pin on the Boron, as the Boron doesn't have a +5V pin. The VUSB connection uses power directly from the USB port.
 
 ## Manually set Atlas protocol from UART to I2C
 This procedure is easiest using a breadboard and a set of jumper wires.
