@@ -1,1 +1,1 @@
-Script intended to operate an Atlas Scientific Conductivity Sensor with a Particle Boron. Uses AtlasConductivity_NewProject2 firmware. Initially pushed to GitHub July 2024.
+Script intended to operate an Atlas Scientific Conductivity Sensor with a Particle Boron. Uses AtlasConductivity_20240724 firmware. Initially pushed to GitHub July 2024.
