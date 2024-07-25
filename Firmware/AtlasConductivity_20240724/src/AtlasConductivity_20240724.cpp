@@ -1,4 +1,25 @@
-#include <Particle.h>
+/* 
+ * Project myProject
+ * Author: Your Name
+ * Date: 
+ * For comprehensive documentation and examples, please visit:
+ * https://docs.particle.io/firmware/best-practices/firmware-template/
+ */
+
+// Include Particle Device OS APIs
+#include "Particle.h"
+
+// Global objects
+SerialLogHandler logHandler;
+
+void setup(void);
+void loop(void);
+void string_pars();
+
+SYSTEM_MODE(SEMI_AUTOMATIC); // uncomment for deployment
+SYSTEM_THREAD(ENABLED);
+
+// Project specific
 #define address 100              //default I2C ID number for EZO pH Circuit.
 
 char computerdata[20];           //we make a 20 byte character array to hold incoming data from a pc/mac/other.
@@ -57,26 +78,26 @@ void loop() {                   //the main loop will take a reading every 5 seco
        
     switch (code) {                           //switch case based on what the response code is.
       case 1:                                 //decimal 1.
-        Serial.println("Success");            //means the command was successful.
+        Log.info("Success");            //means the command was successful.
         break;                                //exits the switch case.
 
       case 2:                                 //decimal 2.
-        Serial.println("Failed");             //means the command has failed.
+        Log.info("Failed");             //means the command has failed.
         break;                                //exits the switch case.
 
       case 254:                               //decimal 254.
-        Serial.println("Pending");            //means the command has not yet been finished calculating.
+        Log.info("Pending");            //means the command has not yet been finished calculating.
         break;                                //exits the switch case.
 
       case 255:                               //decimal 255.
-        Serial.println("No Data");            //means there is no further data to send.
+        Log.info("No Data");            //means there is no further data to send.
         break;                                //exits the switch case.
     }
   
-    Serial.println(ec_data);                  //print the data.
-    serial_event = false;                      //reset the serial event flag.
+    Log.info(ec_data);                  //print the data.
+    serial_event = false;                     //reset the serial event flag.
 
-    if(computerdata[0]=='R') string_pars(); //Call the Strign_Pars() function to break up the comma separated ec_data string into its individual parts.
+    if(computerdata[0]=='R') string_pars(); //Call the String_Pars() function to break up the comma separated ec_data string into its individual parts.
     
     delay(5000-delay_time); //this will pause until 5 seconds have elapsed from previous reading
   }
@@ -86,10 +107,7 @@ void string_pars() {                  //this function will break up the CSV stri
 
   ec = strtok(ec_data, ",");          //let's pars the string at each comma.
 
-  Serial.print("ec:");                //we now print each value we parsed separately.
-  Serial.println(ec);                 //this is the pH value.
-  //Spark.publish("ec", String(ec));
-  
+  Log.info("ec: %s", ec);
 
   //uncomment this section if you want to take the values and convert them into floating point number.
   /*
