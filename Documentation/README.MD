@@ -26,13 +26,14 @@ Note: The Arduino is used as a power source only. You can connect any other powe
 <img src="Photos/Circuit-Diagram.jpeg" width="600">
 Figure: Made using Canva due to Circuit Diagram issues.
 
-1. Ground both devices (GND to GND)
-2. Power the Boron from USB input for now by connecting 3V3 on Boron to VCC on Atlas Ezo
+1. Stack the EC EZO on the Atlas Carrier Board so that the EZO's TX, RX, and GND pins are on the side nearest to the Atlas' pins.
+2. Ground both devices (GND to GND)
+3. Power the Boron from USB input for now by connecting 3V3 on Boron to VCC on Atlas Ezo
     - Switch to 5V Solar System later on
     - Power supply note: Boron can provide a stable 3.3V to carrier board long-term
-3. Connect SCL pin on Boron to SCL pin on carrier board
-4. Connect SDA pin on Boron to SDA pin on carrier board
-5. Screw the probe's cable onto the carrier board
+4. Connect SCL pin on Boron to SCL pin on carrier board
+5. Connect SDA pin on Boron to SDA pin on carrier board
+6. Screw the probe's cable onto the carrier board
 
 ## 3: Firmware for Boron and Atlas
 1. Firmware for the Boron and Atlas are found in the `Conductivity Repository/Firmware` folder. Navigate to Firmware > AtlasConductivity_20240724 > src > AtlasConductivity_20240724.cpp **(found here (insert link once pull request is approved))** and copy all code in the file.
