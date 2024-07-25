@@ -38,7 +38,11 @@ Figure: Made using Canva due to Circuit Diagram issues.
 ## 3: Firmware for Boron and Atlas
 1. Firmware for the Boron and Atlas are found in the `Conductivity Repository/Firmware` folder. Navigate to Firmware > AtlasConductivity_20240724 > src > AtlasConductivity_20240724.cpp **(found here (insert link once pull request is approved))** and copy all code in the file.
 2. Create a new project in Particle Workbench / VS Code and paste the code you just copied into the generated .cpp file under src (should have the same name as the project you created).
-3. Compile and flash code to the Boron; once successful, open the serial monitor to see data.
+3. Compile and flash code to the Boron. If successful, open the serial monitor. It should look like this:
+
+<img src="Photos/SerialMonitor.jpeg" width="400">
+
+Please note: This photo shows an EC value of zero -- This is because the probe was not submerged in any medium when this code was tested.
 
 ## Important Links
 - [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
