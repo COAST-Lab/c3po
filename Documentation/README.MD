@@ -40,9 +40,14 @@ Figure: Made using Canva due to Circuit Diagram issues.
 2. Create a new project in Particle Workbench / VS Code and paste the code you just copied into the generated .cpp file under src (should have the same name as the project you created).
 3. Compile and flash code to the Boron. If successful, open the serial monitor. It should look like this:
 
-<img src="Photos/SerialMonitor.jpeg" width="400">
+<img src="Photos/SerialMonitor_Distilled.jpeg" width="400">
 
-Please note: This photo shows an EC value of zero -- This is because the probe was not submerged in any medium when this code was tested.
+The above photo shows an EC value of zero because the probe was submerged in DI water at the time of this reading
+
+<img src="Photos/SerialMonitor_Sink.jpeg" width="400">
+
+The above photo shows an EC value greater than zero because the probe was submerged in non-distilled sink water at the time of this reading.
+
 
 ## Important Links
 - [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
