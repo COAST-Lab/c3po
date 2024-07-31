@@ -1,5 +1,3 @@
-** This page is under construction! Come back soon for a complete BOM.
-
 # Bill of Materials
 Please note: Prices are listed in USD and are subject to change based on market value and availability.
 
