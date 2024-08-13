@@ -11,7 +11,6 @@
 #include "SdFat.h"
 
 
-
  //------------------SD SPI Configuration Details--------------------------------
 const int SD_CHIP_SELECT = D5;
 SdFat sd;
@@ -177,8 +176,6 @@ void loop(void) {
 
       Log.info("ec: %s", ec);
 
-    
-
   //uncomment this section if you want to take the values and convert them into floating point number.
   /*
   ec_float=atof(ec);
@@ -186,11 +183,14 @@ void loop(void) {
   sal_float=atof(sal);
   sg_float=atof(sg);
   */
- 
+
   real_time = Time.now(); // "Real" time and current millis for logging
   millis_now = millis();
 
-   snprintf("%li,%s", real_time, ec); //,%.5f,%.5f,%.5f,%.5f,%.5f,%.02f,%.02f",
+   snprintf(data, sizeof(data), "%li,%s", 
+   real_time, 
+   ec
+   ); 
 
     delay(2000);
 
@@ -210,7 +210,7 @@ void loop(void) {
     }
     else{ // if file does open, save to SD; otherwise, proceed to publish
       // Save to SD card
-      myFile.print(ec_data);
+      myFile.print(data);
       myFile.print("\n"); // put next data on new line
       myFile.close();
     }
@@ -223,14 +223,11 @@ void loop(void) {
     else{
       state = SLEEP_STATE;
     }
-
     }
 
     break;
 
-      
-
-///////////////////////PUBLISH STATE////////////////////////
+/////////////////////// PUBLISH STATE ////////////////////////
 
   case PUBLISH_STATE: {
 
@@ -254,7 +251,6 @@ void loop(void) {
         bool success = Particle.publish(eventName, ec_data, 60, PRIVATE, WITH_ACK);
         Log.info("publish result %d", success); 
 
-
         isMaxTime = true;
         state = SLEEP_STATE;
       }
@@ -270,16 +266,14 @@ void loop(void) {
         delay(500);
       }
     } 
-
   }
   
   break;
-  
 
-  //////////////////////////////////////////////////////////////////////////////
-  /*** SLEEP_STATE ***/
+  //////////////////////////////////////**SLEEP_STATE ***//////////////////////////////////////////
   /*** Get here from PUBLISH_STATE after attempted publish or DATALOG_STATE if PUBLISHING==0
   ***/
+
   case SLEEP_STATE: {
     Log.info("going to sleep");
     delay(500);
@@ -301,15 +295,10 @@ void loop(void) {
     state = DATALOG_STATE;
 
   }
-
-    break;
-      
+    break;  
   }
-
 }
-
 }
-
 
 int secondsUntilNextEvent() {
 
