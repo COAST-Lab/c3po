@@ -1,5 +1,5 @@
 
-#include <sequencer4.h>
+#include "sequencer4.h"
 
 Sequencer4::Sequencer4( void (*step1)(), unsigned long time1, 
                         void (*step2)(), unsigned long time2,

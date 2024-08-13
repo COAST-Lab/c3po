@@ -1,5 +1,5 @@
 
-#include <sequencer1.h>
+#include "sequencer1.h"
 
 Sequencer1::Sequencer1(void (*step1)(), unsigned long time1){
     t1 = time1;

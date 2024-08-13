@@ -1,6 +1,6 @@
 
 #include "iot_cmd.h"
-#include <Ezo_i2c_util.h>
+#include "Ezo_i2c_util.h"
 
 bool receive_command(String &string_buffer){
     if (Serial.available()) {                           //if theres any characters in the UART buffer

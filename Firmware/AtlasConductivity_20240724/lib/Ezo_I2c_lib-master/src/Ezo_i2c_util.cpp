@@ -1,5 +1,5 @@
 
-#include <Ezo_i2c_util.h>
+#include "Ezo_i2c_util.h"
 
 // prints the boards name and I2C address
 void print_device_info(Ezo_board &Device) {

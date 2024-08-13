@@ -1,5 +1,5 @@
 
-#include <sequencer2.h>
+#include "sequencer2.h"
 
 Sequencer2::Sequencer2( void (*step1)(), unsigned long time1,
                         void (*step2)(), unsigned long time2){

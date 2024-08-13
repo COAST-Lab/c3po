@@ -2,7 +2,7 @@
 #include "Ezo_i2c.h"
 #include "Arduino.h"
 #include "Wire.h"
-#include <stdlib.h>
+#include "stdlib.h"
 
 Ezo_board::Ezo_board(uint8_t address){
 	this->i2c_address = address;
