@@ -150,7 +150,7 @@ void publishState() {
 
     if (Particle.connected()) {
       Log.info("publishing data");
-      snprintf(data, sizeof(data), "%li,%.5f,%.02f", //%.02f", //,%.5f,%.5f,%.5f,%.5f,%.5f,%.02f,%.02f",
+      snprintf(data, sizeof(data), "%li,%.5f,%.02f", 
       real_time, // if it takes a while to connect, this time could be offset from sensor recording
       temp,
       cond
@@ -158,8 +158,7 @@ void publishState() {
 
     delay(2000);
 
-      //char sensordata = ((RTD.get_last_received_reading()), (","), EC.get_last_received_reading()); // Combine or format the data as needed
-      bool success = Particle.publish(eventName, data, PRIVATE, WITH_ACK);
+      bool success = Particle.publish(eventName, data, PRIVATE, WITH_ACK); // infor that will be publish, "data" defined earlier
       Log.info("publish result %d", success);
 
     delay(2000);
