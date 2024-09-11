@@ -62,8 +62,63 @@ void loop() {                   //the main loop will take a reading every 5 seco
 
     delay(delay_time);                        //wait the correct amount of time for the circuit to complete its instruction.
 
-    Wire.requestFrom(address, 24, 1);          //call the circuit and request 24 bytes (this is more then we need).
-    code = Wire.read();                        //the first byte is the response code, we read this separately.
+  // Initialize the library
+  if (!sd.begin(SD_CHIP_SELECT, SPI_FULL_SPEED)) {
+    Log.info("failed to open card");
+  }
+
+  delay(2000);
+
+  // Open the file for write
+  if (!myFile.open("conductivity.csv", O_RDWR | O_CREAT | O_AT_END)) {
+    Log.info("opening conductivity.csv for write failed");
+  } else {
+    // Save to SD card
+   // myFile.print(data);
+    myFile.print(real_time);
+    myFile.print(",");
+    myFile.print(temp);
+    myFile.print(",");
+    myFile.print(cond);
+    myFile.print("\n"); // Put next data on a new line
+    myFile.close();
+  }
+
+  delay(2000);
+
+  // Determine next state
+  if (PUBLISHING == 1) {
+    state = PUBLISH_STATE;
+  } else {
+    state = SLEEP_STATE;
+  }
+}
+
+// Publish State
+void publishState() {
+  bool isMaxTime = false;
+  stateTime = millis();
+
+  while (!isMaxTime) {
+    if (!Particle.connected()) {
+      Particle.connect();
+      Log.info("Trying to connect");
+    }
+
+    if (Particle.connected()) {
+      Log.info("publishing data");
+      snprintf(data, sizeof(data), "%li,%.5f,%.02f", 
+      real_time, // if it takes a while to connect, this time could be offset from sensor recording
+      temp,
+      cond
+    );
+
+    delay(2000);
+
+      bool success = Particle.publish(eventName, data, PRIVATE, WITH_ACK); // infor that will be publish, "data" defined earlier
+      Log.info("publish result %d", success);
+
+    delay(2000);
     
     while (Wire.available()) {                  //are there bytes to receive.
       in_char = Wire.read();                    //receive a byte.
