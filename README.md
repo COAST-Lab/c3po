@@ -1,2 +1,2 @@
-# ConductivitySensor
+# Coastal Conductivity Communication Probe (C3PO)
 This respository shows the progress of the C3PO project, which employs the Atlas Conductivity and Temperature (RTD) Sensors with the Particle Boron. Included are documentation, firmware, and circuit diagrams.
