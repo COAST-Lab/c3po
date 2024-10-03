@@ -188,9 +188,9 @@ void sleepState() {
     .gpio(D2, FALLING)
     .duration(wakeInSeconds * 1000L); // Set seconds until wake
 
-  Wire.write("RTD sleep"); // Send sleep command to RTD
-  Wire.write("EC sleep");  // Send sleep command to EC                       //Decrease energy output from 16.85 mA to 0.5 mA
-
+  RTD.send_cmd("sleep");  // This will likely send the correct I2C sleep command.
+  EC.send_cmd("sleep"); //Decrease energy output from 16.85 mA to 0.5 mA
+  
   SystemSleepResult result = System.sleep(config); // Device sleeps here
 
   Log.info("Feeling restless");
