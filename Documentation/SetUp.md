@@ -27,6 +27,9 @@ This procedure is easiest using a breadboard and a set of jumper wires.
 3. Insert a microSD card into the Particle Boron 404x.
 4. Stack the Boron onto the Adalogger FeatherWing.
 5. Replicate wiring as shown in the following diagram:
+
+<img src="Photos/WiringDiagram_20241101.jpg" width="600">
+
     - Ground both devices (GND to GND).
     - Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term.)
     - SCL to SCL
@@ -36,7 +39,7 @@ This procedure is easiest using a breadboard and a set of jumper wires.
 # Housing assembly
 1. Cut the EC probe and RTD probe cables using the guidelines found here: [AtlasScientific - How to properly cut your probe cable](https://files.atlas-scientific.com/how-to-properly-cut-probe-cables.pdf)
 2. Lengthen each probe cable with the 2m waterproof 4-wire cables; cover with shrink tubing or electrical tape to ensure water-tightness.
-3. 
+3. CONTINUE ....
 
 
 ## Firmware
