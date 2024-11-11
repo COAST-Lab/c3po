@@ -8,7 +8,8 @@ AtlasScientific K0.1 EZO-Conductivity Kit | Measures water conductivity with ran
 AtlasScientific SMA PT-1000 Temperature Kit | Measures water temperature | $43.99 | https://atlas-scientific.com/kits/sma-temperature-kit/
 Boron LTE-M (NorAm) with EtherSIM (BRN404X) | IoT Development Board with cellular capability | $48.95 | https://store.particle.io/products/boron-lte-cat-m1-noram-with-ethersim-4th-gen
 Adalogger FeatherWing - RTC + SD Add-On for All Feather Boards | Real-time I2C clock + SD port; internal datalogging | $8.95 | https://www.adafruit.com/product/2922
-Tentacle T3 Shield | Carrier board for EZO circuits | $? | https://www.whiteboxes.ch/docs/tentacle/t3/#/
+Tentacle T3 Shield | Carrier board for EZO circuits; discontinued | $101.99 | https://www.whiteboxes.ch/docs/tentacle/t3/#/
+Altas i3 Interlink | Carrier board for EZO circuits; replaced Tentacle T3 Shield | $54.99 | https://atlas-scientific.com/electrical-isolation/i3-interlink/
 CR1220 Coin Battery | Battery for Adalogger FeatherWing | $0.95 |  https://www.adafruit.com/product/380
 Standard Breadboard | UART to I2C protocol; connecting electronics without soldering | $2.90 | https://www.digikey.com/en/products/detail/dfrobot/FIT0096/7597069
 Jumper cables / prototyping wires | UART to I2C protocol; connecting electronics | $1.95 | https://www.digikey.com/en/products/detail/adafruit-industries-llc/1954/6827087
