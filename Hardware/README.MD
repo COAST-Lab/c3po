@@ -8,8 +8,8 @@ AtlasScientific K0.1 EZO-Conductivity Kit | Measures water conductivity with ran
 AtlasScientific SMA PT-1000 Temperature Kit | Measures water temperature | $43.99 | https://atlas-scientific.com/kits/sma-temperature-kit/
 Boron LTE-M (NorAm) with EtherSIM (BRN404X) | IoT Development Board with cellular capability | $48.95 | https://store.particle.io/products/boron-lte-cat-m1-noram-with-ethersim-4th-gen
 Adalogger FeatherWing - RTC + SD Add-On for All Feather Boards | Real-time I2C clock + SD port; internal datalogging | $8.95 | https://www.adafruit.com/product/2922
+Tentacle T3 Shield | Carrier board for EZO circuits | $? | https://www.whiteboxes.ch/docs/tentacle/t3/#/
 CR1220 Coin Battery | Battery for Adalogger FeatherWing | $0.95 |  https://www.adafruit.com/product/380
-Short Headers Kit for Feather - 12-pin + 16-pin Female Headers | Stacking Boron + Adalogger | $1.50 | https://www.adafruit.com/product/2940
 Standard Breadboard | UART to I2C protocol; connecting electronics without soldering | $2.90 | https://www.digikey.com/en/products/detail/dfrobot/FIT0096/7597069
 Jumper cables / prototyping wires | UART to I2C protocol; connecting electronics | $1.95 | https://www.digikey.com/en/products/detail/adafruit-industries-llc/1954/6827087
 Voltaic 5W 5V Solar System | Use solar energy to power sensor electronics | $99.00 |  https://voltaicsystems.com/5-watt-5-volt-35wh-solar-system/
@@ -24,3 +24,5 @@ Samsung EVO Plus 64GB 100/MB/s Micro SDXC Memory Card with Adapter | Store measu
 - PCB mounting boss screws (4-24 x 1/4" thread-forming)
 - 3D print resin (for chassis)
 - Screws + hex nuts (to secure electronics to chassis)
+
+Short Headers Kit for Feather - 12-pin + 16-pin Female Headers | Stacking Boron + Adalogger | $1.50 | https://www.adafruit.com/product/2940
