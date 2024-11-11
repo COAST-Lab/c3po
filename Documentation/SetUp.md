@@ -1,23 +1,22 @@
-# Initialization of Sensors with Particle Boron 404X
-## Change protocol of Atlas Conductivity and RTD Temp Sensors
-- Out of the kit, Atlas sensors are in UART mode. We wish to change this mode to I2C mode.
-- Manually set the protocol from UART to I2C as described [here,](https://www.whiteboxes.ch/docs/tentacle/t2-mkII/#/protocols) or follow the steps below.
-    - Note: Figures use an ArduinoUno, though instructions refer to a Boron.
-    - Every connection remains the same except the Arduino powering with the +5V pin: use the VUSB pin on the Boron instead. The VUSB connection uses power directly from the microUSB port.
+# Changing circuit protocol from UART to I2C
 
-This procedure is easiest using a breadboard and a set of jumper wires.
-1. Place an EZO circuit and a Boron 404X on a breadboard as pictured.
-2. Ground the devices (GND, GND)
-3. Connect (shortcut)
-    - PGND pin to TX pin for EZO: pH, DO, ORP, or EC circuits
-    - PRB pin to TX pin for EZO: RTD circuits
-4. Power the EZO circuit (GND, +5V)
-    - Boron: (GND, VUSB)
-5. Wait for LED to change from flashing green to flashing dark blue (UART --> I2C).
-    - Note: The Arduino device pictured is only used as a power source. Use an other power source, such as a computer (3.3V-5V).
-6. Remove the jumper wire from the PGND (or PRB) pin from the TX pin.
-7. Remove power (GND, 5V).
-8. Repeat steps 1-7 for additional circuits.
+## EZO EC: UART to I2C
+1. Place an EZO EC circuit and a Boron 404X on a breadboard as pictured..
+2. Ground the devices (GND to GND).
+3. Shortcut RX to PRB on the EC circuit.
+4. Power the circuit by connecting the EC's VCC to the Boron's 3V3.
+5. Power the Boron with a Micro USB cord to another source, like a laptop.
+6. Wait until the LED light on the EC turns dark blue.
+
+## EZO RTD: UART to I2C
+1. Place an EZO RTD circuit and a Boron 404X on a breadboard as pictured.
+2. Ground the devices (GND to GND).
+3. Shortcut TX to PRB on the RTD circuit.
+4. Power the circuit by connecting the RTD's VCC to the Boron's 3V3.
+5. Power the Boron with a Micro USB cord to another source, like a laptop.
+6. Wait until the LED light on the RTD turns dark blue.
+
+See the picture below for LED statuses for EZO circuits.
 
 # Wiring Diagram Assembly
 1. Stack the EZO circuits on the Atlas Tentace T3 Shield 1 so that the EZO's VCC, PRB, and PGND / PRB pins are nearest to the cable ports.
@@ -28,19 +27,19 @@ This procedure is easiest using a breadboard and a set of jumper wires.
 4. Stack the Boron onto the Adalogger FeatherWing.
 5. Replicate wiring as shown in the following diagram:
 
-<img src="Photos/WiringDiagram_20241101.jpg" width="600">
+<img src="Photos/WiringDiagram_20241101.jpg" width="700">
 
-    - Ground both devices (GND to GND).
-    - Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term.)
-    - SCL to SCL
-    - SDA to SDA
-    - Probes attach to Tentacle T3 Shield.
+- Ground both devices (GND to GND).
+- Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term.)
+- SCL to SCL
+- SDA to SDA
+- Probes attach to Tentacle T3 Shield.
 
-# Housing assembly
-1. Cut the EC probe and RTD probe cables using the guidelines found here: [AtlasScientific - How to properly cut your probe cable](https://files.atlas-scientific.com/how-to-properly-cut-probe-cables.pdf)
-2. Lengthen each probe cable with the 2m waterproof 4-wire cables; cover with shrink tubing or electrical tape to ensure water-tightness.
-3. CONTINUE ....
+# Upper Housing Assembly
+1. 
 
+# Lower Housing Assembly
+1. 
 
 ## Firmware
 1. Firmware can be found in: c3po >> Firmware
