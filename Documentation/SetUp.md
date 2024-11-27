@@ -1,20 +1,14 @@
 # Changing circuit protocol from UART to I2C
 
-## EZO EC: UART to I2C
-1. Place an EZO EC circuit and a Boron 404X on a breadboard as pictured..
+## EZO Circuits: UART to I2C
+1. Place an EZO circuit and a Boron 404X on a breadboard.
 2. Ground the devices (GND to GND).
-3. Shortcut RX to PRB on the EC circuit.
-4. Power the circuit by connecting the EC's VCC to the Boron's 3V3.
+3. Shortcut ...
+    - EZO EC: RX to PRB on the EC circuit
+    - EZO RTD: TX to PRB on the RTD circuit
+4. Power the circuit by connecting the circuit's VCC to the Boron's 3V3.
 5. Power the Boron with a Micro USB cord to another source, like a laptop.
 6. Wait until the LED light on the EC turns dark blue.
-
-## EZO RTD: UART to I2C
-1. Place an EZO RTD circuit and a Boron 404X on a breadboard as pictured.
-2. Ground the devices (GND to GND).
-3. Shortcut TX to PRB on the RTD circuit.
-4. Power the circuit by connecting the RTD's VCC to the Boron's 3V3.
-5. Power the Boron with a Micro USB cord to another source, like a laptop.
-6. Wait until the LED light on the RTD turns dark blue.
 
 See the picture below for LED statuses for EZO circuits.
 
