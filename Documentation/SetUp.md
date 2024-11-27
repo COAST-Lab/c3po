@@ -9,11 +9,14 @@
 4. Power the circuit by connecting the circuit's VCC to the Boron's 3V3.
 5. Power the Boron with a Micro USB cord to another source, like a laptop.
 6. Wait until the LED light on the EC turns dark blue.
+7. Unplug the power source. Remove all components from the breadboard.
+    - Repeat steps 1-7 for both EZO EC and RTD circuits.
 
 See the picture below for LED statuses for EZO circuits.
+<img src="Photos/I2C_LED_Status.png" width="600">
 
 # Wiring Diagram Assembly
-1. Stack the EZO circuits on the Atlas Tentace T3 Shield 1 so that the EZO's VCC, PRB, and PGND / PRB pins are nearest to the cable ports.
+1. Stack the EZO circuits on the Atlas Tentacle T3 Shield so that the EZO's VCC, PRB, and PGND / PRB pins are nearest to the cable ports.
     - EC on port 1
     - RTDs on port 3
 2. Place a lithium cell battery into the Adalogger FeatherWing.
@@ -21,7 +24,7 @@ See the picture below for LED statuses for EZO circuits.
 4. Stack the Boron onto the Adalogger FeatherWing.
 5. Replicate wiring as shown in the following diagram:
 
-<img src="Photos/WiringDiagram_20241101.jpg" width="700">
+<img src="Photos/WiringDiagram_20241127.jpg" width="700">
 
 - Ground both devices (GND to GND).
 - Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term.)
