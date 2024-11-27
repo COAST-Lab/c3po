@@ -26,23 +26,26 @@ See the picture below for LED statuses for EZO circuits.
 
 <img src="Photos/WiringDiagram_20241127.jpg" width="700">
 
-- Ground both devices (GND to GND).
-- Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term.)
-- SCL to SCL
-- SDA to SDA
-- Probes attach to Tentacle T3 Shield.
+    - Ground both devices (GND to GND)
+    - Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term)
+    - SCL to SCL
+    - SDA to SDA
+    - Probes attach to Tentacle T3 Shield
+
+## Firmware
+1. Firmware can be found in: c3po >> Firmware
+2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
+3. Open a new project in Particle Workbench / VS Code; paste the code you just copied into the generated .cpp file under src (should have the same name as the project you just created).
+4. Open Particle CLI and set the device and OS to "Boron" and "6.1.1," respectively.
+5. Place the Boron in DFU mode. (For help, see: https://docs.particle.io/troubleshooting/led/)
+    - Use https://docs.particle.io/tools/device-restore/device-restore-usb/ to restore the Boron if needed.
+6. Compile and flash code to the Boron. Once successfully compiled, open the serial monitor to see data.
 
 # Upper Housing Assembly
 1. 
 
 # Lower Housing Assembly
 1. 
-
-## Firmware
-1. Firmware can be found in: c3po >> Firmware
-2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
-3. Open a new project in Particle Workbench / VS Code; paste the code you just copied into the generated .cpp file under src (should have the same name as the project you just created).
-4. Compile and flash code to the Boron. Once successfully compiled, open the serial monitor to see data.
 
 ## Important Links
 - [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
