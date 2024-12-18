@@ -19,11 +19,11 @@ See the picture below for LED statuses for EZO circuits.
 1. Power your Particle Boron 404X from a laptop via the Boron's USB-C port.
 2. Navigate to the Particle Device Restore Tool: https://docs.particle.io/tools/device-restore/device-restore-usb/ (note: only works in certain browsers)
 3. Click "Select device" – you should see a pop-up window listing your Boron (paired); click it + "Connect"
-4. Select "Tinker (Factory Default)" and "6.1.1"
+4. Select "Tinker (Factory Default)" and "4.2.0"
 5. Select "Flash Device" (wait until all settings have loaded before moving to the next step)
 6. Visit [Blink_LED.cpp](https://github.com/gracelower/c3po/blob/main/Firmware/Blink_LED.cpp) and copy all code; paste it into a new project in VS Code.
     - In your new project, launch Particle CLI. You can put your Boron in DFU mode and use the `particle identify` command in the terminal to ensure your device is being recognized by your computer.
-    - Make sure you have selected "Boron" and "6.1.1" in the botton bar of VS Code.
+    - Make sure you have selected "Boron" and "4.2.0" in the botton bar of VS Code.
 7. Compile the Blink code and flash it to your Boron (make sure the Boron is in DFU mode for this).
 
 # Practice with Boron & Adalogger
@@ -68,7 +68,7 @@ See the picture below for LED statuses for EZO circuits.
 1. Firmware can be found in: c3po >> Firmware
 2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
 3. Open a new project in Particle Workbench / VS Code; paste the code you just copied into the generated .cpp file under src (should have the same name as the project you just created).
-4. Open Particle CLI and set the device and OS to "Boron" and "6.1.1," respectively.
+4. Open Particle CLI and set the device and OS to "Boron" and "4.2.0," respectively.
 5. Place the Boron in DFU mode. (For help, see: https://docs.particle.io/troubleshooting/led/)
 6. Compile and flash code to the Boron. Once successfully compiled, open the serial monitor to see data.
 
