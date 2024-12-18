@@ -1,9 +1,8 @@
-# Changing circuit protocol from UART to I2C
-
-## EZO Circuits: UART to I2C
+# c3po Setup
+## Changing circuit protocol from UART to I2C on EZO Circuits
 1. Place an EZO circuit and a Boron 404X on a breadboard.
 2. Ground the devices (GND to GND).
-3. Shortcut ...
+3. Short ...
     - EZO EC: RX to PRB on the EC circuit
     - EZO RTD: TX to PRB on the RTD circuit
 4. Power the circuit by connecting the circuit's VCC to the Boron's 3V3.
@@ -15,7 +14,7 @@
 See the picture below for LED statuses for EZO circuits.
 <img src="Photos/I2C_LED_Status.png" width="600">
 
-# Setting up your Boron
+## Setting up your Boron
 1. Power your Particle Boron 404X from a laptop via the Boron's USB-C port.
 2. Navigate to the Particle Device Restore Tool: https://docs.particle.io/tools/device-restore/device-restore-usb/ (note: only works in certain browsers)
 3. Click "Select device" – you should see a pop-up window listing your Boron (paired); click it + "Connect"
@@ -26,7 +25,7 @@ See the picture below for LED statuses for EZO circuits.
     - Make sure you have selected "Boron" and "4.2.0" in the botton bar of VS Code.
 7. Compile the Blink code and flash it to your Boron (make sure the Boron is in DFU mode for this).
 
-# Practice with Boron & Adalogger
+## Practice with Boron & Adalogger
 1. Create a new Particle project (example: RTCtest_"date")
 2. Navigate to `src` > `.cpp` file
 3. Command/shift/p to open search bar; navigate to "Particle: Install Library"
@@ -47,7 +46,7 @@ See the picture below for LED statuses for EZO circuits.
 15. If successful, serial monitor should read:
 # INSERT PHOTO
 
-# Wiring Diagram Assembly
+## Wiring Diagram Assembly
 1. Stack the EZO circuits on the Atlas Tentacle T3 Shield so that the EZO's VCC, PRB, and PGND / PRB pins are nearest to the cable ports.
     - EC on port 1
     - RTDs on port 3
@@ -72,7 +71,8 @@ See the picture below for LED statuses for EZO circuits.
 5. Place the Boron in DFU mode. (For help, see: https://docs.particle.io/troubleshooting/led/)
 6. Compile and flash code to the Boron. Once successfully compiled, open the serial monitor to see data.
 
-# Upper Housing Assembly
+# Housings
+## Upper Housing Assembly
 Note: These assembly instructions are a work-in-progress!
 Note: CAD files for internal chassis can be found [here.] (INSERT LINK)
 1. Attach cellular antenna to frame on chassis.
@@ -83,7 +83,7 @@ Note: CAD files for internal chassis can be found [here.] (INSERT LINK)
 6. Using [INSERT SIZE] screws, fasten the chassis inside Polycase SK-15.
 7. Using [INSERT SIZE] screws, fasten the clear lid to the Polycase.
 
-# Lower Housing Assembly
+## Lower Housing Assembly
 1. 
 
 ## Important Links
