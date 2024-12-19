@@ -14,6 +14,7 @@
 See the picture below for LED statuses for EZO circuits.
 <img src="Photos/I2C_LED_Status.png" width="600">
 
+
 ## Setting up your Boron
 1. Power your Particle Boron 404X from a laptop via the Boron's USB-C port.
 2. Navigate to the Particle Device Restore Tool: https://docs.particle.io/tools/device-restore/device-restore-usb/ (note: only works in certain browsers)
@@ -47,8 +48,8 @@ See the picture below for LED statuses for EZO circuits.
 14. Open the serial monitor: Command Palette -> 'Particle: Serial Monitor'
     - Select 'yes' if prompted whether you want to 'automatically reconnect when port is closed'
 15. If successful, serial monitor should read:
-
 # INSERT PHOTO
+
 
 ## Wiring Diagram Assembly
 1. Stack the EZO circuits on the Atlas Tentacle T3 Shield so that the EZO's VCC, PRB, and PGND / PRB pins are nearest to the cable ports.
@@ -67,6 +68,7 @@ See the picture below for LED statuses for EZO circuits.
     - SDA to SDA
     - Probes attach to Tentacle T3 Shield
 
+
 ## Firmware
 1. Firmware can be found in: c3po >> Firmware
 2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
@@ -74,6 +76,7 @@ See the picture below for LED statuses for EZO circuits.
 4. Open Particle CLI and set the device and OS to "Boron" and "6.1.1" respectively.
 5. Place the Boron in DFU mode. (For help, see: https://docs.particle.io/troubleshooting/led/)
 6. Compile and flash code to the Boron. Once successfully compiled, open the serial monitor to see data.
+
 
 # Housings
 ## Upper Housing Assembly
@@ -86,13 +89,14 @@ Note: CAD files for internal chassis can be found [here.] (INSERT LINK)
 5. Feed the solar cable throught the cable gland.
 6. Using [INSERT SIZE] screws, fasten the chassis inside Polycase SK-15.
 7. Using [INSERT SIZE] screws, fasten the clear lid to the Polycase.
-
 ## Lower Housing Assembly
 1. 
+
 
 ## Important Links
 - [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
 - [TheGeographer/water-quality-array](https://github.com/TheGeographer/water-quality-array/tree/master) - a project that used the Atlas probe for water quality measurements
+
 
 ## Transitioning to Solar Power
 1. Cut the female 5V 2A connector of of the solar cable and strip the end.
