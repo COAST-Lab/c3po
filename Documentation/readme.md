@@ -60,7 +60,7 @@ See the picture below for LED statuses for EZO circuits.
 4. Stack the Boron onto the Adalogger FeatherWing.
 5. Replicate wiring as shown in the following diagram:
 
-<img src="Photos/WiringDiagram_20241219.jpg" width="700">
+<img src="Photos/WiringDiagram_20241220.jpg" width="700">
 
     - Ground both devices (GND to GND)
     - Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term)
