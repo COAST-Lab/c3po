@@ -1,4 +1,5 @@
 # c3po Setup
+
 ## Changing circuit protocol from UART to I2C on EZO Circuits
 1. Place an EZO circuit and a Boron 404X on a breadboard.
 2. Ground the devices (GND to GND).
@@ -48,7 +49,10 @@ See the picture below for LED statuses for EZO circuits.
 14. Open the serial monitor: Command Palette -> 'Particle: Serial Monitor'
     - Select 'yes' if prompted whether you want to 'automatically reconnect when port is closed'
 15. If successful, serial monitor should read:
+
 # INSERT PHOTO
+
+** Please note: SD cards formatted as exFAT need to be reformatted as FAT32 for the Adalogger FeatherWing.
 
 
 ## Wiring Diagram Assembly
