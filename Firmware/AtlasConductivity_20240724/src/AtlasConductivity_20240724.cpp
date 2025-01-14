@@ -74,6 +74,7 @@ void setup() {
 
   Serial.begin(9600); // Enable serial port
   Wire.begin();       // Enable I2C port
+  delay(1000);
   Log.info("Conductivity and Temperature Sensor");
 }
 
@@ -87,15 +88,19 @@ void serialEvent() {
 // Step 1 function
 void step1() {
   RTD.send_read_cmd(); // Send read command to RTD
+  delay(100);
   EC.send_read_cmd();  // Send read command to EC
+  delay(100);
 }
 
 // Step 2 function
 void step2() {
   receive_and_print_reading(RTD); // Get reading from RTD circuit
   Log.info(" ");
+  delay(100);
   receive_and_print_reading(EC);  // Get reading from EC circuit
   Log.info(" ");
+  delay(100);
   temp = RTD.get_last_received_reading(); 
   cond = EC.get_last_received_reading(); 
 
@@ -127,7 +132,7 @@ void step2() {
     myFile.close();
   }
 
-  delay(2000);
+  delay(3000);
 
   // Determine next state
   if (PUBLISHING == 1) {
