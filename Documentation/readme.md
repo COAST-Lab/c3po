@@ -1,4 +1,5 @@
 # c3po Setup
+
 ## Changing circuit protocol from UART to I2C on EZO Circuits
 1. Place an EZO circuit and a Boron 404X on a breadboard.
 2. Ground the devices (GND to GND).
@@ -14,18 +15,22 @@
 See the picture below for LED statuses for EZO circuits.
 <img src="Photos/I2C_LED_Status.png" width="600">
 
+
 ## Setting up your Boron
 1. Power your Particle Boron 404X from a laptop via the Boron's USB-C port.
 2. Navigate to the Particle Device Restore Tool: https://docs.particle.io/tools/device-restore/device-restore-usb/ (note: only works in certain browsers)
 3. Click "Select device" – you should see a pop-up window listing your Boron (paired); click it + "Connect"
-4. Select "Tinker (Factory Default)" and "4.2.0"
+4. Select "Tinker (Factory Default)" and "6.1.1"
 5. Select "Flash Device" (wait until all settings have loaded before moving to the next step)
 6. Visit [Blink_LED.cpp](https://github.com/gracelower/c3po/blob/main/Firmware/Blink_LED.cpp) and copy all code; paste it into a new project in VS Code.
     - In your new project, launch Particle CLI. You can put your Boron in DFU mode and use the `particle identify` command in the terminal to ensure your device is being recognized by your computer.
-    - Make sure you have selected "Boron" and "4.2.0" in the botton bar of VS Code.
+    - Make sure you have selected "Boron" and "6.1.1" in the botton bar of VS Code.
 7. Compile the Blink code and flash it to your Boron (make sure the Boron is in DFU mode for this).
+    - Boron should flash yellow/green when being put into DFU mode, then should breathe a white/blue light once it’s successfully flashed
+    - If you run into issues, try `particle update` and `particle serial identify` commands to update and check Particle's system
 
-## Practice with Boron & Adalogger
+
+## Practice with Boron & Adalogger; initialize microSD card
 1. Create a new Particle project (example: RTCtest_"date")
 2. Navigate to `src` > `.cpp` file
 3. Command/shift/p to open search bar; navigate to "Particle: Install Library"
@@ -40,11 +45,15 @@ See the picture below for LED statuses for EZO circuits.
 12. Where it says `if (!SD.begin(SD_CS_PIN,)) {` paste `if (!SD.begin(SD_CS_PIN,SPI_FULL_SPEED))`
 13. Stack your Particle Boron 404x and Adalogger FeatherWing; power via USB-C to a computer.
 13. Compile code; flash it to your Boron (again, make sure Boron is in DFU mode)
-    - Boron should flash yellow/green when being put into DFU mode, then should breathe a white/blue light once it’s successfully flashed
+    - Remember, bottom bar of VS Code should read "Boron" and "6.1.1"
 14. Open the serial monitor: Command Palette -> 'Particle: Serial Monitor'
     - Select 'yes' if prompted whether you want to 'automatically reconnect when port is closed'
 15. If successful, serial monitor should read:
+
 # INSERT PHOTO
+
+** Please note: SD cards formatted as exFAT need to be reformatted as FAT32 for the Adalogger FeatherWing.
+
 
 ## Wiring Diagram Assembly
 1. Stack the EZO circuits on the Atlas Tentacle T3 Shield so that the EZO's VCC, PRB, and PGND / PRB pins are nearest to the cable ports.
@@ -55,7 +64,7 @@ See the picture below for LED statuses for EZO circuits.
 4. Stack the Boron onto the Adalogger FeatherWing.
 5. Replicate wiring as shown in the following diagram:
 
-<img src="Photos/WiringDiagram_20241127.jpg" width="700">
+<img src="Photos/WiringDiagram_20241220.jpg" width="700">
 
     - Ground both devices (GND to GND)
     - Power Boron from USB for now (to transition to solar power, follow the instructions at the end of this page). Power the EZO circuits with the Boron 3V3 input. (Note: Boron can provide stable 3.3V to carrier board long-term)
@@ -63,13 +72,15 @@ See the picture below for LED statuses for EZO circuits.
     - SDA to SDA
     - Probes attach to Tentacle T3 Shield
 
+
 ## Firmware
 1. Firmware can be found in: c3po >> Firmware
 2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
 3. Open a new project in Particle Workbench / VS Code; paste the code you just copied into the generated .cpp file under src (should have the same name as the project you just created).
-4. Open Particle CLI and set the device and OS to "Boron" and "4.2.0," respectively.
+4. Open Particle CLI and set the device and OS to "Boron" and "6.1.1" respectively.
 5. Place the Boron in DFU mode. (For help, see: https://docs.particle.io/troubleshooting/led/)
 6. Compile and flash code to the Boron. Once successfully compiled, open the serial monitor to see data.
+
 
 # Housings
 ## Upper Housing Assembly
@@ -82,13 +93,14 @@ Note: CAD files for internal chassis can be found [here.] (INSERT LINK)
 5. Feed the solar cable throught the cable gland.
 6. Using [INSERT SIZE] screws, fasten the chassis inside Polycase SK-15.
 7. Using [INSERT SIZE] screws, fasten the clear lid to the Polycase.
-
 ## Lower Housing Assembly
 1. 
+
 
 ## Important Links
 - [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
 - [TheGeographer/water-quality-array](https://github.com/TheGeographer/water-quality-array/tree/master) - a project that used the Atlas probe for water quality measurements
+
 
 ## Transitioning to Solar Power
 1. Cut the female 5V 2A connector of of the solar cable and strip the end.
