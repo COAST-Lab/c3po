@@ -37,11 +37,6 @@ Loctite Marine Epoxy | Attaching pipe caps to PVC pipe; attaching propes to pipe
 
 
 ## Parts in progress:
-- Solar panel + Polycase bracket (to attach panel & enclosure to signpost)
-- Polycase enclosure w/ knockouts (to house electronics)
-- PCB mounting boss screws (4-24 x 1/4" thread-forming)
 - 3D print resin (for chassis)
-- Screws + hex nuts (to secure electronics to chassis)
-- Cable glands for 4-wire & solar wire entry in Polycase
-
-Short Headers Kit for Feather - 12-pin + 16-pin Female Headers | Stacking Boron + Adalogger | $1.50 | https://www.adafruit.com/product/2940
+- Polycase + solar bracket
+- Short Headers Kit for Feather - 12-pin + 16-pin Female Headers | Stacking Boron + Adalogger | $1.50 | https://www.adafruit.com/product/2940
