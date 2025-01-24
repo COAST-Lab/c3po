@@ -11,7 +11,7 @@ Samsung EVO Plus 64GB 100/MB/s Micro SDXC Memory Card with Adapter | Store measu
 Standard Breadboard | UART to I2C protocol; connecting electronics without soldering (for setup) | $2.90 | https://www.digikey.com/en/products/detail/dfrobot/FIT0096/7597069
 Jumper cables / prototyping wires | UART to I2C protocol; connecting electronics (for setup) | $1.95 | https://www.digikey.com/en/products/detail/adafruit-industries-llc/1954/6827087
 Polycase SK-14 | Housing electronics of upper body | $21.77 | https://www.polycase.com/sk-14
-Cable glands (2), 0.105–0.315in | Waterproof cable entry for 4-wire & solar cables | $2.23/unit | https://www.polycase.com/cg3-cable-glands#CG-313D
+Cable glands (2), 0.17 | Waterproof cable entry for 4-wire & solar cables | $2.23/unit | https://www.polycase.com/cg3-cable-glands#CG-313D
 3D printed chassis | Holding Boron, Adalogger, & cellular antenna inside Polycase | Custom print | 
 Thread-forming screws | Fastening 3D printed chassis to Polycase |  | 
 18-8 Stainless Steel Socket Head Screw M2.5x0.45mm Thread, 18mm long | Mounting Boron + FeatherWing to chassis | $15.75 per 50 pack | https://www.mcmaster.com/91292A028/
@@ -28,8 +28,8 @@ Altas i3 Interlink | Carrier board for EZO circuits (replaced Tentacle T3 Shield
 Voltaic 5W 5V Solar System | Use solar energy to power sensor electronics | $99.00 |  https://voltaicsystems.com/5-watt-5-volt-35wh-solar-system/
 Female 3.5x1.1mm - MicroUSB Adapter | Connects solar panel to Boron | $3.00 | https://voltaicsystems.com/A101
 3" Sch 40 PVC pipe | Encloses sensors; attaches to signpost | $10.96 ($5.98/ft, sold as 24in) | https://www.homedepot.com/p/IPEX-3-in-x-24-in-Rigid-PVC-Schedule-40-Pipe-2203/205706641
-Cable gland (1), 0.105–0.315in | Waterproof cable entry for 4-wire cable | $2.23/unit | https://www.polycase.com/cg3-cable-glands#CG-31
 3D printed pipe cap, top | Pipe cap, with attached chassis to hold i3 Interlink with EZO circuits inside PVC pipe | Custom print | 
+Cable gland (1), 0.105–0.315in | Waterproof cable entry for 4-wire cable | $2.23/unit | https://www.polycase.com/cg3-cable-glands#CG-31
 18-8 Stainless Steel Socket Head Screw M2.5x0.45mm Thread, 10mm long | Mounting i3 Interlink to chassis | $6.54 per 100 pack | https://www.mcmaster.com/91292A014/
 18-8 Stainless Steel Hex Nut M2.5x0.45mm Thread, 2mm height | Mounting i3 Interlink to chassis | $6.45 per 100 pack | https://www.mcmaster.com/91828A113/
 3D printed pipe cap, bottom | For bottom of PVC pipe, where probes are fastened & exit pipe | Custom print |
