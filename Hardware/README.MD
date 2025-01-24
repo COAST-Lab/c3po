@@ -13,9 +13,9 @@ Jumper cables / prototyping wires | UART to I2C protocol; connecting electronics
 Polycase SK-14 | Housing electronics of upper body | $21.77 | https://www.polycase.com/sk-14
 Cable glands (2), 0.17–0.45in | Waterproof cable entry for 4-wire cable & solar cable | $2.86/unit | https://www.polycase.com/cg3-cable-glands#CG-32
 3D printed chassis | Holding Boron, Adalogger, & cellular antenna inside Polycase | Custom print | 
-PCB mounting boss thread-forming screws | Fastening 3D printed chassis to Polycase | | 
-Screws | Mounting Boron & Adalogger to chassis | | 
-Hex nuts | Mounting Boron & Adalogger to chassis | |
+Rounded Head Thread-Forming Screws for Brittle Plastic, 18-8 Stainless Steel, #4-24 1/4" long | Fastening 3D printed chassis to Polycase | $5.29 per 100 pack | https://www.mcmaster.com/97349A415/
+18-8 Stainless Steel Socket Head Screw M2.5x0.45mm Thread, 18mm long | Mounting Boron + FeatherWing to chassis | $15.75 per 50 pack | https://www.mcmaster.com/91292A028/
+18-8 Stainless Steel Hex Nut M2.5x0.45mm Thread, 2mm height | Mounting Boron & Adalogger to chassis | $6.45 per 100 pack | https://www.mcmaster.com/91828A113/
 
 # Lower Body
 Part | Function | Cost | URL
