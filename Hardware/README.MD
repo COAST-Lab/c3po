@@ -21,8 +21,8 @@ Part | Function | Cost | URL
 | :---------------- | :------ | :---- | :---- |
 18-8 Stainless Steel Socket Head Screw M2.5x0.45mm Thread, 18mm long | Mounting Boron + FeatherWing to chassis | $15.75 per 50 pack | https://www.mcmaster.com/91292A028/
 18-8 Stainless Steel Hex Nut M2.5x0.45mm Thread, 2mm height | Mounting Boron & Adalogger to chassis | $6.45 per 100 pack | https://www.mcmaster.com/91828A113/
-M2.5x6 or M2.5x5+6mm screws + hex nuts | | | 
-M2.5+6.5mm standoffs | | | 
+M2.5x6 or M2.5x5+6mm screws + hex nuts of choice| | | 
+M2.5+6.5mm standoffs of choice | | | 
 
 
 
