@@ -1,5 +1,6 @@
 # c3po Setup
 
+
 ## Changing circuit protocol from UART to I2C on EZO Circuits
 1. Place an EZO circuit and a Boron 404X on a breadboard.
 2. Ground the devices (GND to GND).
@@ -16,6 +17,7 @@ See the picture below for LED statuses for EZO circuits.
 <img src="Photos/I2C_LED_Status.png" width="600">
 
 
+
 ## Setting up your Boron
 1. Power your Particle Boron 404X from a laptop via the Boron's USB-C port.
 2. Navigate to the Particle Device Restore Tool: https://docs.particle.io/tools/device-restore/device-restore-usb/ (note: only works in certain browsers)
@@ -28,6 +30,7 @@ See the picture below for LED statuses for EZO circuits.
 7. Compile the Blink code and flash it to your Boron (make sure the Boron is in DFU mode for this).
     - Boron should flash yellow/green when being put into DFU mode, then should breathe a white/blue light once it’s successfully flashed
     - If you run into issues, try `particle update` and `particle serial identify` commands to update and check Particle's system
+
 
 
 ## Practice with Boron & Adalogger; initialize microSD card
@@ -49,10 +52,10 @@ See the picture below for LED statuses for EZO circuits.
 14. Open the serial monitor: Command Palette -> 'Particle: Serial Monitor'
     - Select 'yes' if prompted whether you want to 'automatically reconnect when port is closed'
 15. If successful, serial monitor should read:
-
 # INSERT PHOTO
 
 ** Please note: SD cards formatted as exFAT need to be reformatted as FAT32 for the Adalogger FeatherWing.
+
 
 
 ## Wiring Diagram Assembly
@@ -73,6 +76,7 @@ See the picture below for LED statuses for EZO circuits.
     - Probes attach to Tentacle T3 Shield
 
 
+
 ## Firmware
 1. Firmware can be found in: c3po >> Firmware
 2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
@@ -82,25 +86,6 @@ See the picture below for LED statuses for EZO circuits.
 6. Compile and flash code to the Boron. Once successfully compiled, open the serial monitor to see data.
 
 
-# Housings
-## Upper Housing Assembly
-Note: These assembly instructions are a work-in-progress!
-Note: CAD files for internal chassis can be found [here.] (INSERT LINK)
-1. Attach cellular antenna to frame on chassis.
-2. Using [INSERT SIZE] hex nuts and [INSERT SIZE] screws, fasten stacked Boron/FeatherWing to chassis.
-3. Plug solar cable into the Boron USB-C port.
-4. Punch out one of the Polycase SK-15 knockouts; place a cable gland in this knockout.
-5. Feed the solar cable throught the cable gland.
-6. Using [INSERT SIZE] screws, fasten the chassis inside Polycase SK-15.
-7. Using [INSERT SIZE] screws, fasten the clear lid to the Polycase.
-## Lower Housing Assembly
-1. 
-
-
-## Important Links
-- [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
-- [TheGeographer/water-quality-array](https://github.com/TheGeographer/water-quality-array/tree/master) - a project that used the Atlas probe for water quality measurements
-
 
 ## Transitioning to Solar Power
 1. Cut the female 5V 2A connector of of the solar cable and strip the end.
@@ -108,3 +93,33 @@ Note: CAD files for internal chassis can be found [here.] (INSERT LINK)
 3. Solder the +5V wires together and the GND wires together. (Can use shrink tubing to keep red and black internal wires separate.)
 4. Cover this connection with shrink tubing / electrical tape / your preference.
 5. Plug the microB cable into the microB port on the Boron.
+
+
+
+# Housings
+## Upper Housing Assembly
+Note: These assembly instructions are a work-in-progress!
+Note: CAD files for internal chassis can be found in [Hardware](https://github.com/gracelower/c3po/tree/97b56c0644a478266c53f73f97005d2dce2971e3/Hardware)
+1. Attach cellular antenna to frame on chassis.
+2. Using [INSERT SIZE] hex nuts and [INSERT SIZE] screws, fasten stacked Boron/FeatherWing to chassis.
+3. Plug solar cable into the Boron USB-C port.
+4. Punch out two of the Polycase SK-15 knockouts; insert CG-32 cable glands.
+5. Through one gland, feed the solar cable; through the other, feed the 4-wire cable.
+6. Using [INSERT SIZE] screws, fasten the chassis inside Polycase SK-15.
+7. Using [INSERT SIZE] screws, fasten the clear lid to the Polycase.
+
+## Lower Housing Assembly
+1. Cut a ___" piece of 3" nominal ID sch. 40 PVC pipe.
+2. Solder the 4-wire cable to the i3 Interlink's pins according to the wiring diagram.
+3. Using [INSERT SIZE] hex nuts and [INSERT SIZE] screws, fasten the i3 Interlink board (with EZO circuits) onto the 3D-printed chassis / top cap.
+4. Insert a CG-32 cable gland to the top cap; feed the 4-wire cable through.
+5. Screw the probes onto the i3 Interlink and feed the top cap, i3 Interlink, and probes through the PVC pipe.
+6. Feed the temperature and conductivity probes through the holes in the bottom cap.
+7. Epoxy the probes to the bottom cap so the exposed portions are equal in length. [SPECIFIC LENGTH?]
+8. Epoxy the caps to the PVC pipe; ensure complete sealance!
+
+
+
+## Important Links
+- [AtlasScientific EZO<sup>TM</sup> Conductivity Sensor](https://atlas-scientific.com/embedded-solutions/ezo-conductivity-circuit/) - contains documentation, sample Arduino code, and more
+- [TheGeographer/water-quality-array](https://github.com/TheGeographer/water-quality-array/tree/master) - a project that used the Atlas probe for water quality measurements
