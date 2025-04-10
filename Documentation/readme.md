@@ -1,7 +1,16 @@
 # c3po Setup
 
+## Sections:
+1. Changing circuit protocol from UART to I2C on EZO Circuits
+2. Setting up your Boron
+3. Practice with Boron & Adalogger; initialize microSD card
+4. Wiring Diagram Assembly
+5. Firmware
+6. Transitioning to Solar Power
+7. Housings
 
-## Changing circuit protocol from UART to I2C on EZO Circuits
+
+## 1. Changing circuit protocol from UART to I2C on EZO Circuits
 1. Place an EZO circuit and a Boron 404X on a breadboard.
 2. Ground the devices (GND to GND).
 3. Short ...
@@ -33,7 +42,7 @@ See the picture below for LED statuses for EZO circuits.
 
 
 
-## Practice with Boron & Adalogger; initialize microSD card
+## 3. Practice with Boron & Adalogger; initialize microSD card
 1. Create a new Particle project (example: RTCtest_"date")
 2. Navigate to `src` > `.cpp` file
 3. Command/shift/p to open search bar; navigate to "Particle: Install Library"
@@ -58,7 +67,7 @@ See the picture below for LED statuses for EZO circuits.
 
 
 
-## Wiring Diagram Assembly
+## 4. Wiring Diagram Assembly
 1. Stack the EZO circuits on the Atlas Tentacle T3 Shield so that the EZO's VCC, PRB, and PGND / PRB pins are nearest to the cable ports.
     - EC on port 1
     - RTDs on port 3
@@ -77,7 +86,7 @@ See the picture below for LED statuses for EZO circuits.
 
 
 
-## Firmware
+## 5. Firmware
 1. Firmware can be found in: c3po >> Firmware
 2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
 3. Open a new project in Particle Workbench / VS Code; paste the code you just copied into the generated .cpp file under src (should have the same name as the project you just created).
@@ -87,7 +96,7 @@ See the picture below for LED statuses for EZO circuits.
 
 
 
-## Transitioning to Solar Power
+## 6. Transitioning to Solar Power
 1. Cut the female 5V 2A connector of of the solar cable and strip the end.
 2. Cut the USB A connector of the USB A to Micro-B cable and strip the end.
 3. Solder the +5V wires together and the GND wires together. (Can use shrink tubing to keep red and black internal wires separate.)
@@ -96,7 +105,7 @@ See the picture below for LED statuses for EZO circuits.
 
 
 
-# Housings
+# 7. Housings
 ## Upper Housing Assembly
 Note: These assembly instructions are a work-in-progress!
 Note: CAD files for internal chassis can be found in [Hardware](https://github.com/gracelower/c3po/tree/97b56c0644a478266c53f73f97005d2dce2971e3/Hardware)
