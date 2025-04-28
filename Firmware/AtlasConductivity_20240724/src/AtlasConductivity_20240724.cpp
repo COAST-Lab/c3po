@@ -5,32 +5,29 @@
 #include <sequencer2.h> // Imports a 2-function sequencer
 #include <Ezo_i2c_util.h> // Brings in common print statements
 
-// SD SPI Configuration Details
-const int SD_CHIP_SELECT = D5;
-SdFat sd;
+//Initialize I2C addresses for the probes 
+Ezo_board RTD = Ezo_board(102, "RTD");       //create a RTD circuit object, who's address is 102 and name is "RTD"
+Ezo_board EC = Ezo_board(100, "EC");      //create an EC circuit object who's address is 100 and name is "EC"
 
-// Forward declarations of functions
-void step1();
+//forward declarations of functions to use them in the sequencer before defining them
+void step1(); 
 void step2();
 int secondsUntilNextEvent();
 
-// Project-specific
-Ezo_board EC = Ezo_board(100, "EC");       //create a PH circuit object, who's address is 99 and name is "PH"
-Ezo_board RTD = Ezo_board(102, "RTD"); 
+Sequencer2 Seq(&step1, 1000, &step2, 0);  //calls the steps in sequence with time in between them
 
-// Sequencer setup
-Sequencer2 Seq(&step1, 1000, &step2, 0);  // Calls the steps in sequence with time in between them
+SYSTEM_MODE(MANUAL);
+SYSTEM_THREAD(ENABLED);
+
+// SD SPI Configuration Details
+const int SD_CHIP_SELECT = D5;
+SdFat sd;
+File myFile;
 
 // Various timing constants
 const unsigned long MAX_TIME_TO_PUBLISH_MS = 20000; // Only stay awake for this time trying to connect to the cloud and publish
-// const unsigned long TIME_AFTER_PUBLISH_MS = 4000; // After publish, wait 4 seconds for data to go out
-
-// ***** IMPORTANT!!!
-// If SECONDS_BETWEEN_MEASUREMENTS < 600, must use 
-//.network(NETWORK_INTERFACE_CELLULAR, SystemSleepNetworkFlag::INACTIVE_STANDBY);
-// in sleep configuration to avoid reconnection penalty
-const unsigned long SECONDS_BETWEEN_MEASUREMENTS = 360; // Assuming same as TinyCamML?
-// ***** IMPORTANT!!! See note above this const.
+//const unsigned long TIME_AFTER_PUBLISH_MS = 4000; // After publish, wait 4 seconds for data to go out
+const unsigned long SECONDS_BETWEEN_MEASUREMENTS = 360; // 360 for deployments
 
 // State variables
 enum State {
@@ -40,197 +37,171 @@ enum State {
 };
 State state = DATALOG_STATE;
 
-// Define whether to publish
-#define PUBLISHING 0
+// Define whether to publish, 1, or not, 0 
+#define PUBLISHING 1
 
-
+//Other definitions
 unsigned long stateTime = 0;
+long real_time;
+int millis_now;
+double temp; 
+double cond; 
 char data[120];
-char rtd[24];
-float ec_float; // Float variable to hold the float value
-
-// Turn off cellular for preliminary testing; turn on for deployment
-//SYSTEM_MODE(MANUAL); // Uncomment for preliminary testing
-SYSTEM_MODE(SEMI_AUTOMATIC); // Uncomment for deployment
-SYSTEM_THREAD(ENABLED);
+float rtd;
+float ec_float; 
 
 // Global objects
 SerialLogHandler logHandler;
 SystemSleepConfiguration config;
 const char *eventName = "cond";
 
-long real_time;
-int millis_now;
-double temp; 
-double cond; 
 
-// Setup function
 void setup() {
   if (PUBLISHING == 1) {
     Particle.connect();
   } else {
     Cellular.off(); // Turn off cellular for preliminary testing
   }
-
-  Serial.begin(9600); // Enable serial port
-  Wire.begin();       // Enable I2C port
-  delay(1000);
-  Log.info("Conductivity and Temperature Sensor");
-}
-
-// Serial event function
-void serialEvent() {
-  char computerdata[20];
-  byte received_from_computer = Serial.readBytesUntil(13, computerdata, 20); // Read data until <CR>
-  computerdata[received_from_computer] = 0; // Null-terminate the string
-}
-
-// Step 1 function
-void step1() {
-  RTD.send_read_cmd(); // Send read command to RTD
-  delay(100);
-  EC.send_read_cmd();  // Send read command to EC
-  delay(100);
-}
-
-// Step 2 function
-void step2() {
-  receive_and_print_reading(RTD); // Get reading from RTD circuit
-  Log.info(" ");
-  delay(100);
-  receive_and_print_reading(EC);  // Get reading from EC circuit
-  Log.info(" ");
-  delay(100);
-  temp = RTD.get_last_received_reading(); 
-  cond = EC.get_last_received_reading(); 
-
-  real_time = Time.now(); // Real time for logging
-  millis_now = millis();
-
-  // Start SD stuff
-  File myFile;
-
-  // Initialize the library
-  if (!sd.begin(SD_CHIP_SELECT, SPI_FULL_SPEED)) {
-    Log.info("failed to open card");
-  }
-
-  delay(2000);
-
-  // Open the file for write
-  if (!myFile.open("conductivity.csv", O_RDWR | O_CREAT | O_AT_END)) {
-    Log.info("opening conductivity.csv for write failed");
-  } else {
-    // Save to SD card
-   // myFile.print(data);
-    myFile.print(real_time);
-    myFile.print(",");
-    myFile.print(temp);
-    myFile.print(",");
-    myFile.print(cond);
-    myFile.print("\n"); // Put next data on a new line
-    myFile.close();
-  }
-
   delay(3000);
+  Wire.begin();                           //start the I2C
+  Serial.begin(9600);                     //start the serial communication to the computer
+  Seq.reset();                            //initialize the sequencer
 
-  // Determine next state
-  if (PUBLISHING == 1) {
-    state = PUBLISH_STATE;
+  //Initialize sd card
+  if (!sd.begin(SD_CHIP_SELECT))
+  {
+    sd.initErrorHalt();
+  }
+  // open the file for write at end like the "Native SD library"
+  if (!myFile.open("conductivity.csv", O_RDWR | O_CREAT | O_AT_END))
+  {
+    Serial.println("opening test.csv for write failed");
   } else {
-    state = SLEEP_STATE;
+    Serial.println("Writing to sd card"); 
+    myFile.println("Real_Time,Temp_C,Cond_uScm-1"); //printing headers 
+    myFile.close(); 
   }
 }
 
-// Publish State
-void publishState() {
-  bool isMaxTime = false;
-  stateTime = millis();
-
-  while (!isMaxTime) {
-    if (!Particle.connected()) {
-      Particle.connect();
-      Log.info("Trying to connect");
-    }
-
-    if (Particle.connected()) {
-      Log.info("publishing data");
-      snprintf(data, sizeof(data), "%li,%.5f,%.02f", 
-      real_time, // if it takes a while to connect, this time could be offset from sensor recording
-      temp,
-      cond
-    );
-
-    delay(2000);
-
-      bool success = Particle.publish(eventName, data, PRIVATE, WITH_ACK); // infor that will be publish, "data" defined earlier
-      Log.info("publish result %d", success);
-
-    delay(2000);
-    
-      isMaxTime = true;
-      state = SLEEP_STATE;
-    } else {
-      if (millis() - stateTime >= MAX_TIME_TO_PUBLISH_MS) {
-        isMaxTime = true;
-        state = SLEEP_STATE;
-        Log.info("max time for publishing reached without success; go to sleep");
-      }
-      Log.info("Not max time, try again to connect and publish");
-      delay(500);
-    }
-  }
-}
-
-// Sleep State
-void sleepState() {
-  Log.info("going to sleep");
-  delay(500);
-
-  int wakeInSeconds = secondsUntilNextEvent(); // Calculate how long to sleep
-
-  config.mode(SystemSleepMode::ULTRA_LOW_POWER)
-    .gpio(D2, FALLING)
-    .duration(wakeInSeconds * 1000L); // Set seconds until wake
-
-  RTD.send_cmd("sleep");  // This will likely send the correct I2C sleep command.
-  EC.send_cmd("sleep"); //Decrease energy output from 16.85 mA to 0.5 mA
-  
-  SystemSleepResult result = System.sleep(config); // Device sleeps here
-
-  Log.info("Feeling restless");
-  stateTime = millis();
-  state = DATALOG_STATE;
-}
-
-// Main loop function
 void loop() {
   switch (state) {
-    case DATALOG_STATE:
-      // Execute data logging tasks
-      Seq.run(); // Run the sequencer
-      break;
+    case DATALOG_STATE: {
+      //Seq.run(); // Run the sequencer
+      delay(1000);
+      step1(); 
+      delay(1000); 
+      step2(); 
+      delay(300);
+      temp = RTD.get_last_received_reading(); 
+      cond = EC.get_last_received_reading(); 
+    
+      real_time = Time.now(); // Real time for logging
+      millis_now = millis();
 
-    case PUBLISH_STATE:
-      publishState(); // Handle publishing
-      break;
+      snprintf(data, sizeof(data), "%li,%.2f,%.2f", real_time, temp, cond); 
+      delay(1000); 
+      Serial.println(data);
+      
+      //Save data to SD card
+      if (!sd.begin(SD_CHIP_SELECT, SPI_FULL_SPEED)) {
+        Serial.println("failed to open card");
+      }
+      delay(1000);
+      if (!myFile.open("conductivity.csv", O_RDWR | O_CREAT | O_AT_END)) {
+        Serial.println("opening conductivity.csv for write failed");
+      } else {
+        // Save to SD card
+        myFile.print(data);
+        myFile.print("\n"); // Put next data on a new line
+        myFile.close();
+      }
 
-    case SLEEP_STATE:
-      sleepState(); // Handle sleeping
-      break;
-  }
+      if (PUBLISHING == 1) { //determine next state
+        state = PUBLISH_STATE;
+       } else {
+        state = SLEEP_STATE;}
+    }
+    break;
+
+    case PUBLISH_STATE: {
+      // Prep for cellular transmission
+      bool isMaxTime = false;
+      stateTime = millis();
+      while (!isMaxTime) {
+        //connect particle to the cloud
+        if (Particle.connected() == false) {
+          Particle.connect();
+          Serial.print("Trying to connect");
+        }
+        // If connected, publish data buffer
+        if (Particle.connected()) {
+          Serial.println("publishing data");
+          // bool (or Future) below requires acknowledgment to proceed
+          bool success = Particle.publish(eventName, data, 60, PRIVATE, WITH_ACK);
+          Serial.printlnf("publish result %d", success);
+          isMaxTime = true;
+          state = SLEEP_STATE;
+        }
+        // If not connected after certain amount of time, go to sleep to save battery
+        else {
+          // Took too long to publish, just go to sleep
+          if (millis() - stateTime >= MAX_TIME_TO_PUBLISH_MS) {
+            isMaxTime = true;
+            state = SLEEP_STATE;
+            Serial.println("max time for publishing reached without success; go to sleep");
+          }
+          Serial.println("Not max time, try again to connect and publish");
+          delay(500);
+        }
+      }
+    }
+    break;
+    
+    case SLEEP_STATE:{
+      Serial.println("going to sleep");
+      delay(500);
+  
+      // Sleep time determination and configuration
+      int wakeInSeconds = secondsUntilNextEvent(); // Calculate how long to sleep 
+  
+      config.mode(SystemSleepMode::ULTRA_LOW_POWER)
+        .gpio(D2, FALLING)
+        .duration(wakeInSeconds * 1000L) // Set seconds until wake
+        .network(NETWORK_INTERFACE_CELLULAR, SystemSleepNetworkFlag::INACTIVE_STANDBY); // keeps the cellular modem powered, but does not wake the MCU for received data
+  
+      // Ready to sleep
+      SystemSleepResult result = System.sleep(config); // Device sleeps here
+  
+      // It'll only make it here if the sleep call doesn't work for some reason (UPDATE: only true for hibernate. ULP will wake here.)
+      Serial.print("Feeling restless");
+      stateTime = millis();
+      state = DATALOG_STATE;
+    }
+    break;
+  }                             
+}
+
+void step1(){
+  //send a read command. we use this command instead of ETD.send_cmd("R"); 
+  //to let the library know to parse the reading
+  RTD.send_read_cmd();    
+  Serial.print("test1 ");                   
+  EC.send_read_cmd();
+  Serial.println("test2"); 
+}
+
+void step2(){
+  receive_and_print_reading(RTD);             //get the reading from the PH circuit
+  Serial.print("test3 ");
+  receive_and_print_reading(EC);             //get the reading from the EC circuit
+  Serial.println("test4");
 }
 
 // Function to calculate seconds until the next event
 int secondsUntilNextEvent() {
   int current_seconds = Time.now();
   int seconds_to_sleep = SECONDS_BETWEEN_MEASUREMENTS - (current_seconds % SECONDS_BETWEEN_MEASUREMENTS);
-  Log.info("Sleeping for %i", seconds_to_sleep);
+  Serial.print("Sleeping for");
+  Serial.println(seconds_to_sleep);
   return seconds_to_sleep;
 }
-
-
-
-
-
-
