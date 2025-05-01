@@ -1,21 +1,16 @@
 # C3PO Setup
 
-This page holds all the info related to setting up your C3PO! Use the Table of Contents below to navigate to what you're looking for:
-
-## Table of Contents
-1. Changing circuit protocol from UART to I2C on EZO circuits
+## Sections:
+1. Changing circuit protocol from UART to I2C on EZO Circuits
 2. Setting up your Boron
 3. Practice with Boron & Adalogger; initialize microSD card
 4. Wiring Diagram Assembly
 5. Firmware
 6. Transitioning to Solar Power
-7. Upper Housing Assembly
-8. Lower Housing Assembly
-9. Important Links
+7. Housings
 
 
-
-## 1. Changing circuit protocol from UART to I2C on EZO circuits
+## 1. Changing circuit protocol from UART to I2C on EZO Circuits
 1. Place an EZO circuit and a Boron 404X on a breadboard.
 2. Ground the devices (GND to GND).
 3. Short ...
@@ -92,7 +87,7 @@ See the picture below for LED statuses for EZO circuits.
 
 
 ## 5. Firmware
-1. Firmware can be found in: C3PO >> Firmware
+1. Firmware can be found in: c3po >> Firmware
 2. Copy all code in: Firmware >> AstlasConductivity_20240724 >> src >> AtlasConductivity_20240724.cpp
 3. Open a new project in Particle Workbench / VS Code; paste the code you just copied into the generated .cpp file under src (should have the same name as the project you just created).
 4. Open Particle CLI and set the device and OS to "Boron" and "6.1.1" respectively.
@@ -110,8 +105,9 @@ See the picture below for LED statuses for EZO circuits.
 
 
 
-# Housings
-## 7. Upper Housing Assembly
+# 7. Housings
+## Upper Housing Assembly
+Note: These assembly instructions are a work-in-progress!
 Note: CAD files for internal chassis can be found in [Hardware](https://github.com/gracelower/c3po/tree/97b56c0644a478266c53f73f97005d2dce2971e3/Hardware)
 1. Attach cellular antenna to frame on chassis.
 2. Solder 4 wire cable to Adalogger FeatherWing as shown in the wiring diagram. (Option to splice female jumper cables to 4-wire cable for a less permanent connection to the FeatherWing!)
