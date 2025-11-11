@@ -54,7 +54,7 @@ float ec_float;
 SerialLogHandler logHandler;
 SystemSleepConfiguration config;
 const char *eventName = "cond";
-
+FuelGauge batteryMonitor;
 
 void setup() {
   if (PUBLISHING == 1) {
@@ -98,7 +98,10 @@ void loop() {
       real_time = Time.now(); // Real time for logging
       millis_now = millis();
 
-      snprintf(data, sizeof(data), "%li,%.2f,%.2f", real_time, temp, cond); 
+      float cellVoltage = batteryMonitor.getVCell();
+      float stateOfCharge = batteryMonitor.getSoC();
+
+      snprintf(data, sizeof(data), "%li,%.2f,%.2f,%.2f,%.2f", real_time, temp, cond, cellVoltage, stateOfCharge); 
       delay(1000); 
       Serial.println(data);
       
