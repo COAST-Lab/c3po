@@ -27,7 +27,7 @@ File myFile;
 // Various timing constants
 const unsigned long MAX_TIME_TO_PUBLISH_MS = 20000; // Only stay awake for this time trying to connect to the cloud and publish
 //const unsigned long TIME_AFTER_PUBLISH_MS = 4000; // After publish, wait 4 seconds for data to go out
-const unsigned long SECONDS_BETWEEN_MEASUREMENTS = 360; // 360 for deployments
+const unsigned long SECONDS_BETWEEN_MEASUREMENTS = 60; // 360 for deployments
 
 // State variables
 enum State {
@@ -38,7 +38,7 @@ enum State {
 State state = DATALOG_STATE;
 
 // Define whether to publish, 1, or not, 0 
-#define PUBLISHING 1
+#define PUBLISHING 0
 
 //Other definitions
 unsigned long stateTime = 0;
@@ -49,6 +49,7 @@ double cond;
 char data[120];
 float rtd;
 float ec_float; 
+int errorcode; 
 
 // Global objects
 SerialLogHandler logHandler;
@@ -101,19 +102,31 @@ void loop() {
       float cellVoltage = batteryMonitor.getVCell();
       float stateOfCharge = batteryMonitor.getSoC();
 
-      snprintf(data, sizeof(data), "%li,%.2f,%.2f,%.2f,%.2f", real_time, temp, cond, cellVoltage, stateOfCharge); 
+      //snprintf(data, sizeof(data), "%li,%.2f,%.2f,%.2f,%.2f", real_time, temp, cond, cellVoltage, stateOfCharge); 
       delay(1000); 
-      Serial.println(data);
+      //Serial.println(data);
       
       //Save data to SD card
       if (!sd.begin(SD_CHIP_SELECT, SPI_FULL_SPEED)) {
         Serial.println("failed to open card");
+        state = SLEEP_STATE;
+        errorcode = 1; 
+        snprintf(data, sizeof(data), "%li,%.2f,%.2f,%.2f,%.2f,%i", real_time, temp, cond, cellVoltage, stateOfCharge, errorcode);
+        Serial.println(data);
       }
       delay(1000);
       if (!myFile.open("conductivity.csv", O_RDWR | O_CREAT | O_AT_END)) {
         Serial.println("opening conductivity.csv for write failed");
+        state = SLEEP_STATE; 
+        errorcode = 1; 
+        snprintf(data, sizeof(data), "%li,%.2f,%.2f,%.2f,%.2f,%i", real_time, temp, cond, cellVoltage, stateOfCharge, errorcode);
+        Serial.println(data);
       } else {
         // Save to SD card
+        errorcode = 0;
+        snprintf(data, sizeof(data), "%li,%.2f,%.2f,%.2f,%.2f,%i", real_time, temp, cond, cellVoltage, stateOfCharge, errorcode);
+        Serial.println(data);
+        delay(200); 
         myFile.print(data);
         myFile.print("\n"); // Put next data on a new line
         myFile.close();
