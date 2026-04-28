@@ -7,8 +7,8 @@ Objectives:
 ## Design Improvements
  **Removable End Caps**  
   The updated design features two removable caps:
-  - Sensor-facing cap
-  - Electronics/battery access cap  
+  - Sensor cap (facing downwards)
+  - Top cap (port to brain/power)
   This allows for easy access to internal components without damaging the housing.
 
  **Exterior Fastening**
@@ -27,10 +27,10 @@ Objectives:
   
 ## Benefits
 - Non-destructive access to electronics and sensors  
-- Improved maintenance and upgrade capability  
+- Improved maintenance and replacement capability  (for sensors, interlink, etc..)
 - Reusable housing design  
 - Expanded data collection through depth sensing
 
 ## Notes
-- This design is intended for iterative testing. Fit, sealing performance, and materials 
-(sanding tolerances and O-ring compression) should be validated during assembly and field use.
+- This design is intended for testing. Fit, sealing performance, and materials 
+(sanding requirments and O-ring compression) should be validated before field use.
