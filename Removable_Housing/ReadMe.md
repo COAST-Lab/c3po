@@ -4,7 +4,7 @@ Objectives:
 - Add opening for pressure transducer
   
 
-Design Improvements
+Design Improvements:
 
  **Removable End Caps** 
   - Sensor cap (facing downwards)
@@ -33,6 +33,6 @@ Design Improvements
 - Reusable housing design  
 - Expanded data collection through depth sensing
 
-Notes
+**Notes**
 - This design is intended for testing. Fit, sealing performance, and materials 
 (sanding requirments and O-ring compression) should be validated before field use.
