@@ -5,8 +5,8 @@ Objectives:
   
 
 Design Improvements
- **Removable End Caps** 
 
+ **Removable End Caps** 
   - Sensor cap (facing downwards)
   - Top cap (port to brain/power)
   This allows for easy access to internal components without damaging the housing.
@@ -20,12 +20,14 @@ Design Improvements
 - The housing uses O-ring grooves to maintain a watertight seal while still allowing repeated
   opening and closing.
 
-  **Pressure Sensor Integration**  
+ **Pressure Sensor Integration**  
 - An additional port has been incorporated to accommodate a pressure sensor, enabling depth
   measurements to be included in the system’s output data.
 
+
+
   
-Benefits
+**Benefits**
 - Non-destructive access to electronics and sensors  
 - Improved maintenance and replacement capability  (for sensors, interlink, etc..)
 - Reusable housing design  
