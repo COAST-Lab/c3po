@@ -4,8 +4,8 @@ Objectives:
 - Add opening for pressure transducer
   
 
-## Design Improvements
- **Removable End Caps**  
+Design Improvements
+ **Removable End Caps** 
   The updated design features two removable caps:
   - Sensor cap (facing downwards)
   - Top cap (port to brain/power)
@@ -25,12 +25,12 @@ Objectives:
   measurements to be included in the system’s output data.
 
   
-## Benefits
+Benefits
 - Non-destructive access to electronics and sensors  
 - Improved maintenance and replacement capability  (for sensors, interlink, etc..)
 - Reusable housing design  
 - Expanded data collection through depth sensing
 
-## Notes
+Notes
 - This design is intended for testing. Fit, sealing performance, and materials 
 (sanding requirments and O-ring compression) should be validated before field use.
