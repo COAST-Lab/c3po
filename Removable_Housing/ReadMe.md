@@ -6,7 +6,7 @@ Objectives:
 
 Design Improvements
  **Removable End Caps** 
-  The updated design features two removable caps:
+
   - Sensor cap (facing downwards)
   - Top cap (port to brain/power)
   This allows for easy access to internal components without damaging the housing.
