@@ -1,0 +1,34 @@
+## Exterior PVC Pipe
+- Pipe ID: 77.9 mm
+- Pipe OD: 88.9 mm
+- Pipe Length: ~16 inches
+
+## End Cap 
+- Type: internal plug cap
+- Cap OD: 77.6 mm
+- Cap Length: 40 mm 
+- Chamfer: 1.5 mm
+- O-ring portion:
+- groove depth: 2.65 mm
+- groove width: 5.3 mm 
+- groove spacing: 12 mm
+- offset from insertion edge: 10 mm
+
+
+## O-ring specs
+- quantity: 2 per end cap
+- cross section: 3.53 mm (0.139")
+- ID: 70.24 mm 
+- material: 70A EPDM
+- link: https://www.mcmaster.com/9452K161/
+
+## Sensor Ports
+Bar30 Sensor-R1-RP (Blue Robitics)
+- BR Pressure Sensor Port Diamter: 10 mm
+
+K 1.0 (Atlas SCientific)
+- Conductivity Probe Port Diameter: 12 mm
+
+Micro PT-1000 (Atlas Scientific
+- Temperature Probe Port Diamter: 6.3 mm
+
