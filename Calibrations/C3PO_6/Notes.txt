@@ -1,0 +1,6 @@
+conducted 7/22/2026 by Liz Farquhar
+C3PO6 powered on at 13:35:10
+Used to be C3PO1, but the EC probe broke, so I replaced the probe with a new one and therefore, gave it a new name since the 
+previous calibration is no longer valid for comparison. 
+
+bubble was on probe during 12,880 until around 13:52:30, when i jostled it between measurements to get rid of it; let the "step" run for a bit longer than 5 min  because of the bubble. 

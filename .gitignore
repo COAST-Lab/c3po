@@ -53,3 +53,4 @@ Thumbs.db
 *.su
 *.idb
 *.pdb
+Firmware/AtlasConductivity_20240724/src/AtlasConductivity_20240724.cpp
