@@ -1,4 +1,4 @@
 conducted 7/22/2026 by Liz Farquhar
 C3PO3 powered on at 14:59:32 
 
-Got confused and accidentally restarted it at 3:18:17 pm while sitting in the 80,000. Going to let it run longer and i'll fix the final csv file before processing 
+Got confused and accidentally restarted it at 3:18:17 pm while sitting in the 80,000. I fixed the final csv file before processing 
