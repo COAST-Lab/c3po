@@ -1,0 +1,14 @@
+7/29/2026 by Liz Farquhar
+
+Plugged in the C3POs to power:
+C3PO2: 9:24:30am
+C3PO3: 9:24:50 am
+C3PO4: 9:25:23am
+C3PO5: 9:25:46am
+C3PO6: 9:26:15am
+YSI calibrated with expired In Situ solution. We used the 12,890 first and then did the 58,670 - saved it as a single point
+Everything was in water by 10:05 am 
+Turned up temperature to 15 degrees C at 10:11:30
+Turned up temperature to 30 degrees C around 10:45 am
+Added salt water to system at 12:34 pm 
+Turned temp down to 10 degrees C at 13:15:20 
