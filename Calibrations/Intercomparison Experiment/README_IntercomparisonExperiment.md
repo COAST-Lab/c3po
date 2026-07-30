@@ -22,25 +22,26 @@ Step 2.
 Fill the cooler up with just enough deionized water so that the YSI, the heat exchanger, and the C3PO probes are all submerged. 
 Add the submersible pump into the cooler to ensure even mixing. 
 
-Turn on the water bath and set the temperature to 10 degrees C. 
+Turn on the water bath and set the temperature to 10 degrees C. It takes awhile for the water to get down to 10C, so you may want to let it run overnight. 
 
 Step 3. 
 
-While you are waiting for the water inside the cooler to come to temperature, turn on the C3POs by plugging in their battery and 
+Once the cooler has come to temperature, turn on the C3POs by plugging in their battery and 
 ensure to record the exact time they were plugged into power. 
 
-Hit "start recording" on the YSI at a sampling rate of 20 seconds and use the temperature from the YSI probe to assess if the water 
+Hit "start recording" on the YSI at a sampling rate of 10 seconds and use the temperature from the YSI probe to assess if the water 
 bath temperature is where it should be. 
 
 Step 4. 
 
-Once the temperature has stabilized at 10 degrees C, let the sensors record for at least 20 minutes. Then, increase the temperature to 
-15 degrees C, wait for water temp to stabilize, and let sensors record for 20 minutes. Repeat - increasing the water temp by 5 degrees 
-until you hit 30 degrees C. 
+Once the temperature has stabilized at 10 degrees C, let the sensors record for at least 30 minutes. Then, increase the temperature to 
+30 degrees C, wait for water temp to stabilize, and let sensors record for another at least 30 minutes past that. 
 
 Step 5. 
 
-After 20 minutes of data collection at 30 degrees C, add 10 L of saltwater to the system. Wait another 20 minutes of recording, and then
-decrease the temperature back down to 25 degrees C. Repeat - decreasing the water temp by 5 degrees until you hit 10 degrees C. 
+After 30+ minutes of data collection at 30 degrees C, add 17 L of saltwater to the system (or however much it takes to make brackish water). Wait until the temperature has restabilized , and then decrease the temperature back down to 10 degrees C. Again, it takes much longer for the water to cool than it does to heat up, so this may run for quite awhile. 
 
+Step 6. 
+
+Offload the data from the instruments and plot using [insert link to code 
 
